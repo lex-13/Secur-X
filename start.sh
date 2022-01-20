@@ -108,9 +108,9 @@ install_psad() {
     echo "Enter your email(s) separated by a comma"
     local emails=$(no_blank "email(s): ")
     apt install psad -y
-    sed -i s/INBOX/$emails/g src/config/psad.conf
-    sed -i s/CHANGEME/$host_name.$domain_name/g templates/psad.conf  
     cp src/config/psad.conf /etc/psad/psad.conf
+    sed -i s/INBOX/$emails/g /etc/psad/psad.conf
+    sed -i s/CHANGEME/$host_name.$domain_name/g /etc/psad/psad.conf
     cp src/config/before.rules /etc/ufw/before.rules
     cp src/config/before6.rules /etc/ufw/before6.rules
     ufw reload
