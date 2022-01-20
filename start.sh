@@ -137,3 +137,7 @@ enable_ufw
 install_fail2ban
 install_psad
 install_nginx
+
+echo -e "\e[32m[✔]\e[00m Hardening completed successfully"
+echo "Use the following command to access the server:"
+echo -e "ssh -i <private key> $username@$serverip"
