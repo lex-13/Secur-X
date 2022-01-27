@@ -14,6 +14,10 @@
 # https://chrisapproved.com/blog/raspberry-pi-hardening.html
 # Credits to Chris
 
+# TODO:
+# - Add install nodejs and pnpm
+# - Configure nginx using nginx.co
+
 source src/helpers.sh
 
 if [ "$USER" != "root" ]; then
@@ -136,7 +140,7 @@ secure_ssh
 enable_ufw
 install_fail2ban
 install_psad
-install_nginx
+confirm_yes "Install nginx?" && install_nginx
 
 echo -e "\e[32m[✔]\e[00m Hardening completed successfully"
 echo "Use the following command to access the server:"
